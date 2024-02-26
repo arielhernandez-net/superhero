@@ -40,11 +40,13 @@ window.onload = function() {
         alert("Por favor, ingresa un número entre 1 y 731.");
     } else {
 
+      $("#loader").removeAttr("hidden");
+      
       $.ajax({
         type: "GET",
         url: BASE_URL + inputValue,
         success: function (result) {
-          console.log(result);
+
           $("#main").hide();
           $("#results").removeAttr("hidden");
           $(".rounded-start").attr("src", result.image.url);
@@ -56,6 +58,7 @@ window.onload = function() {
           $("#desc2").html("<b>Altura</b>: " + result.appearance["height"][1]);
           $("#desc3").html("<b>Peso</b>: " + result.appearance["weight"][1]);
           $("#desc4").html("<b>Publicado Por</b>: " + result.biography.publisher);
+          $("#loader").hide();
   
           const aliases = result.biography.aliases;
             const aliasList = $("<ul></ul>");
