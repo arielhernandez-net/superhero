@@ -1,6 +1,8 @@
-//const API_KEY = "4905856019427443"
-//const BASE_URL ="https://superheroapi.com/api/"+API_KEY
-const test = "https://superhero.arielhernandezcl.workers.dev/"
+const API_KEY = "4905856019427443"
+//const BASE_URL ="https://fixcors.site/corsproxy/?api=https://superheroapi.com/api/"+API_KEY
+//const BASE_URL = "https://superhero.arielhernandezcl.workers.dev/"
+const BASE_URL = "https://fixcors.site/https://www.superheroapi.com/api/"+API_KEY;
+
 let chart;
 
 window.onload = function() {
@@ -38,8 +40,8 @@ function handleButtonClick(e) {
     }
   
     $.ajax({
-      type: "POST",
-      url: test + inputValue,
+      type: "GET",
+      url: BASE_URL + inputValue,
       success: function (result) {
         console.log(result);
         $("#main").hide();
