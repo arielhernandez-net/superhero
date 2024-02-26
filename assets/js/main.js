@@ -1,4 +1,4 @@
-const API_KEY = "4905856019427443"
+const API_KEY = "4905856019427443/"
 //const BASE_URL ="https://fixcors.site/corsproxy/?api=https://superheroapi.com/api/"+API_KEY
 //const BASE_URL = "https://superhero.arielhernandezcl.workers.dev/"
 const BASE_URL = "https://fixcors.site/https://www.superheroapi.com/api/"+API_KEY;
