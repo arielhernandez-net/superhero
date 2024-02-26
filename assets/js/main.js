@@ -4,20 +4,18 @@ let chart;
 
 window.onload = function() {
     chart = new CanvasJS.Chart("chartContainer", {
-      theme: "light2",
-      exportEnabled: false,
-      animationEnabled: true,
+      width:400,
+      theme: "light1",
       title: {
         text: "",
         fontSize: 24,
       },
       data: [{
         type: "pie",
-        startAngle: 25,
         toolTipContent: "<b>{label}</b>: {y}%",
         showInLegend: "true",
         legendText: "{label}",
-        indexLabelFontSize: 14,
+        indexLabelFontSize: 10,
         indexLabel: "{label} - {y}%",
         dataPoints: [],
       }],
@@ -41,16 +39,16 @@ window.onload = function() {
     } else {
 
       $("#loader").removeAttr("hidden");
-      
+      $("#main").hide();
+
       $.ajax({
         type: "GET",
         url: BASE_URL + inputValue,
         success: function (result) {
 
-          $("#main").hide();
           $("#results").removeAttr("hidden");
-          $(".rounded-start").attr("src", result.image.url);
-          $(".rounded-start").attr("alt", result.name);
+          $(".img-fluid").attr("src", result.image.url);
+          $(".img-fluid").attr("alt", result.name);
           $(".card-title").html("<b>Nombre</b>: " + result.name);
           $(".card-text-1").html("<b>Conexiones</b>: " + result.connections["group-affiliation"]);
           $(".card-text-2").html("<b>Ocupacion</b>: " + result.work["occupation"]);
